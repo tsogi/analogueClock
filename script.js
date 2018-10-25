@@ -1,8 +1,10 @@
 (function(){
 
-	var currentTime = { hour : 12, minute : 0, second : 0 };
+	var currentTime = { hour : 0, minute : 0, second : 0 };
 
 	setCurrentTime();
+
+	updateHoursMinutesSeconds();
 
 	function updateHoursMinutesSeconds(){
 		setCurrentTime();
@@ -13,12 +15,12 @@
 
 	function updateHours(){
 		var degree = currentTime.hour * 15;
-		d3.select(".minute").attr("transform", "rotate("+degree+" 150 150)");
+		currentTime.minute != 0 ? d3.select(".hour").attr("transform", "rotate("+degree+" 150 150)") : "";
 	}
 
 	function updateMinutes(){
 		var degree = currentTime.minute * 6;
-		d3.select(".minute").attr("transform", "rotate("+degree+" 150 150)");
+		currentTime.second != 0 ? d3.select(".minute").attr("transform", "rotate("+degree+" 150 150)") : "";
 	}
 
 	function updateSeconds(){
@@ -28,7 +30,7 @@
 
 	setInterval(function(){
 		updateHoursMinutesSeconds();
-	}, 500);
+	}, 1000);
 
 	function setCurrentTime(){
 		currentTime.hour = new Date().getHours();
