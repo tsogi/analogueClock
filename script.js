@@ -14,18 +14,18 @@
 	}
 
 	function updateHours(){
-		var degree = currentTime.hour * 15;
-		currentTime.minute != 0 ? d3.select(".hour").attr("transform", "rotate("+degree+" 150 150)") : "";
+		var degree = currentTime.hour * 30;
+		currentTime.minute != 0 ? d3.select(".hour").attr("transform", "rotate("+degree+" 175 175)") : "";
 	}
 
 	function updateMinutes(){
 		var degree = currentTime.minute * 6;
-		currentTime.second != 0 ? d3.select(".minute").attr("transform", "rotate("+degree+" 150 150)") : "";
+		currentTime.second != 0 ? d3.select(".minute").attr("transform", "rotate("+degree+" 175 175)") : "";
 	}
 
 	function updateSeconds(){
 		var degree = currentTime.second * 6;
-		d3.select(".second").attr("transform", "rotate("+degree+" 150 150)");
+		d3.select(".second").attr("transform", "rotate("+degree+" 175 175)");
 	}
 
 	setInterval(function(){
