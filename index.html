@@ -5,9 +5,13 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-	<svg>
+	<svg class="clockSvg">
 		<circle cx="150" cy="150" r="145" stroke="black" fill="white" stroke-width="3px"></circle>
-		<line x1="150" y1="150" x2="150" y2="4" stroke="black" stroke-width="3px" transform="rotate(6 150 150)"></line>
+		<g class="units">
+			<line class="hour" x1="150" y1="150" x2="150" y2="4" stroke="black" stroke-width="4px"></line>
+			<line class="minute" x1="150" y1="150" x2="150" y2="4" stroke="black" stroke-width="4px"></line>
+			<line class="second" x1="150" y1="150" x2="150" y2="4" stroke="black" stroke-width="4px"></line>
+		</g>
 	</svg>
 	<script type="text/javascript" src="d3.js"></script>
 	<script type="text/javascript" src="script.js"></script>
