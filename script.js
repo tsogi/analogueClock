@@ -35,24 +35,24 @@
 		var arr = [6,5,4,3,2,1,12,11,10,9,8,7];
 
         d3.select(".numbers").selectAll("text").data(arr).enter().append("text")
-         	.attr("x", function(d,i) { console.log(d, getCoordsByDegree(i * 30).x + 175, getCoordsByDegree(i * 30).y + 175); return getCoordsByDegree(i * 30).x + 175 - 6 ; })
+         	.attr("x", function(d,i) { return getCoordsByDegree(i * 30).x + 175 - 6 ; })
          	.attr("y", function(d,i) { return getCoordsByDegree(i * 30).y + 175 + 5; })
          	.text(function(d) { return d; });
 	}
 
 	function updateHours(){
-		var degree = currentTime.hour * 30;
-		currentTime.minute != 0 ? d3.select(".hour").attr("transform", "rotate("+degree+" 175 175)") : "";
+		var degree = currentTime.hour * 30 + 30 / 60 * currentTime.minute;
+		d3.select(".hour").transition().attr("transform", "rotate("+degree+" 175 175)");
 	}
 
 	function updateMinutes(){
 		var degree = currentTime.minute * 6;
-		currentTime.second != 0 ? d3.select(".minute").attr("transform", "rotate("+degree+" 175 175)") : "";
+		d3.select(".minute").transition().attr("transform", "rotate("+degree+" 175 175)");
 	}
 
 	function updateSeconds(){
 		var degree = currentTime.second * 6;
-		d3.select(".second").attr("transform", "rotate("+degree+" 175 175)");
+		d3.select(".second").transition().attr("transform", "rotate("+degree+" 175 175)");
 	}
 
 	function drawMarks(){
