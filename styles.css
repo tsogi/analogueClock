@@ -10,7 +10,7 @@ svg {
     box-sizing: border-box;
 }
 
-.clockSvg circle{
+.clockSvg circle.frame{
 	fill: #af93f3;
 }
 
